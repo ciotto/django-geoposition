@@ -46,6 +46,8 @@ if (jQuery != undefined) {
                 markerCustomOptions,
                 marker;
 
+            window.geopositionMaps = [];
+
             $mapContainer.css('height', $container.data('map-widget-height') + 'px');
             mapCustomOptions = $container.data('map-options') || {};
             markerCustomOptions = $container.data('marker-options') || {};
@@ -135,6 +137,8 @@ if (jQuery != undefined) {
             }
 
             map = new google.maps.Map($mapContainer.get(0), mapOptions);
+            window.geopositionMaps.push(map);
+            
             markerOptions = $.extend({}, markerDefaults, markerCustomOptions, {
                 'map': map
             });
